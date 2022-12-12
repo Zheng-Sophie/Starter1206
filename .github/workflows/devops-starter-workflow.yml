@@ -13,7 +13,6 @@ env:
   HOSTINGPLANNAME: "Starter1206-plan"
   APPINSIGHTLOCATION: "Korea Central"
   SKU: "S1 Standard"
-  SONAR_HOST_URL: "http://20.41.104.25"
 
 jobs:
   Build:
