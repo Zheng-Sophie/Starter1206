@@ -30,7 +30,6 @@ jobs:
       run: |
         pip install -r Application/requirements.txt
 
-    # 37 40 沒有 &&
     - name: Pytest
       continue-on-error: false
       run: |
@@ -40,6 +39,7 @@ jobs:
         pytest --cov=./--cov-config=.coveragerc Tests/unit_tests --junitxml=./testresults/test-results.xml &&
         pip install pycmd && 
         py.cleanup Tests/
+    
     # SonarQube專案設置
     - uses: actions/checkout@v3
       with: 
@@ -47,7 +47,7 @@ jobs:
     - uses: sonarsource/sonarqube-scan-action@master
       env: 
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
     
     # Uploading unit test results to artifact store
     - name: Upload unit test results to Artifact
